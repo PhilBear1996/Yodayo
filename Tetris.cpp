@@ -10,6 +10,12 @@ using namespace std;
 
 const int high[15] = { 4,1,2,2,3,2,3,2,3,2,3,2,3,2,3 };
 int map[28][16];
+#define a1 0
+#define a2 1
+
+#define b 2
+
+
 
 Tetris::Tetris()
 {
