@@ -23,7 +23,7 @@
 	{UML、Ｔetris.h
 	}
 	劉君猷 
-	{Tetris.cpp 檔、函式庫、變數
+	{Tetris.cpp 檔、函式庫、變數、draw函數
 	}
 	余長安
 	{
