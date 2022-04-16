@@ -119,7 +119,6 @@ void Teris::welcome{
 		cout << "< 1到9選擇難度 >" << endl;
 		setPos(20, 10);
 		x = getchar();
-
 		if (x <= '9' && x >= '0')
 		{
 			rank = x - '0';
