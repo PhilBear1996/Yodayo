@@ -45,6 +45,19 @@ void Tetris::setPos(int i, int j)
 	COORD pos = { i, j };
 	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), pos);
 }
+void Tetris::draw(int x, int y, int num)
+{
+	int nx, ny;
+
+	for (int i = 0; i < 4; i++)
+	{
+		nx = x + sharp[num][2 * i];
+		ny = y + sharp[num][2 * i + 1];
+		setPos((ny + 1) * 2, nx + 1);
+		setColor(i + 1);
+		cout << "■";
+	}
+}
 void Tetris::turn(int num)
 {
 	switch(num)
