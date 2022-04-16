@@ -19,7 +19,18 @@ int map[28][16];
 #define c1 3
 #define c2 4
 #define c3 5
-#define c4 6
+#define c4 6	
+
+#define d1 7
+#define d2 8
+#define d3 9
+#define d4 10
+
+#define e1 11
+#define e2 12
+
+#define f1 13
+#define f2 14
 
 const int sharp [19][8]=
 {
@@ -29,8 +40,15 @@ const int sharp [19][8]=
 	{0,0,1,0,1,1,1,2},
 	{0,1,1,1,2,0,2,1},	
 	{0,0,0,1,0,2,1,2},		
-	{0,0,0,1,1,0,2,0},		
-	
+	{0,0,0,1,1,0,2,0},
+	{1,0,1,1,1,2,0,2},	
+	{0,0,0,1,1,1,2,1},	
+	{0,0,0,1,0,2,1,0},		
+	{0,0,1,0,2,0,2,1},		
+	{0,0,0,1,1,1,1,2},		
+	{0,1,1,0,1,1,2,0},	
+	{0,1,0,2,1,0,1,1},	
+	{0,0,1,0,1,1,2,1},      
 }
 Tetris::Tetris()
 {
@@ -62,6 +80,25 @@ void Tetris::turn(int num)
 {
 	switch(num)
 	{
-		case a1: id = a2;break;		
+		case a1: id = a2;break;	
+		case a2: id = a1;break;
+		
+		case b : id = b; break;
+		
+		case c1: id = c2;break;
+		case c2: id = c3;break;
+		case c3: id = c4;break;
+		case c4: id = c1;break;
+		
+		case d1: id = d2;break;
+		case d2: id = d3;break;
+		case d3: id = d4;break;
+		case d4: id = d1;break;
+			
+		case e1: id = e2;break;
+		case e2: id = e1;break;
+			
+		case f1: id = f2;break;
+		case f2: id = f1;break;
 	}
 }
