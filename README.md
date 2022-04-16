@@ -19,7 +19,6 @@
     ![image](https://user-images.githubusercontent.com/101238831/163676192-fea0ba31-97b2-4915-8274-593e6493bd3b.png)
 
 #分工
-
 	鐘敏榮
 	{UML、Ｔetris.h
 	}
