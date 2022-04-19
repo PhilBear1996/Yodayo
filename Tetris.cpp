@@ -32,6 +32,12 @@ int map[28][16];
 #define f1 13
 #define f2 14
 
+
+#define g1 15			
+#define g2 16
+#define g3 17
+#define g4 18
+
 const int sharp [19][8]=
 {
 	{0,0,1,0,2,0,3,0},
@@ -48,7 +54,11 @@ const int sharp [19][8]=
 	{0,0,0,1,1,1,1,2},		
 	{0,1,1,0,1,1,2,0},	
 	{0,1,0,2,1,0,1,1},	
-	{0,0,1,0,1,1,2,1},      
+	{0,0,1,0,1,1,2,1},     
+	{1,0,0,1,1,1,1,2},		
+	{1,0,0,1,1,1,2,1},		
+	{0,1,1,1,2,1,1,2},		
+	{0,0,0,1,1,1,0,2}		
 }
 Tetris::Tetris()
 {
@@ -98,8 +108,13 @@ void Tetris::turn(int num)
 		case e1: id = e2;break;
 		case e2: id = e1;break;
 			
-		case f1: id = f2;break;
-		case f2: id = f1;break;
+		case f1: id = f2; break;
+		case f2: id = f1; break;
+		
+		case g1: id = g2; break;				
+		case g2: id = g3; break;
+		case g3: id = g4; break;
+		case g4: id = g1; break;
 	}
 }
 void Teris::welcome{
