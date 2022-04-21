@@ -142,3 +142,17 @@ void Teris::welcome{
 
 	}
 }	
+void Tetris::SetColor(int color_num)		
+{
+	int n=0x0f;
+	switch (color_num)
+	{
+	case 0: n = 0x08; breeak;
+	
+	case 1: n = 0x0E; break;
+	case 2: n = 0x0D; break;
+	case 3: n = 0x0E; break;
+	case 4: n = 0x0A; break;
+	}
+	SetConsoleTextAttribute (GetStdHandle (STD_OUTPUT_HANDLE), n);
+}
