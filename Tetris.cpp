@@ -147,7 +147,7 @@ void Tetris::SetColor(int color_num)
 	int n=0x0f;
 	switch (color_num)
 	{
-	case 0: n = 0x08; breeak;
+	case 0: n = 0x08; break;
 	case 1: n = 0x0E; break;
 	case 2: n = 0x0D; break;
 	case 3: n = 0x0E; break;
