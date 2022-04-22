@@ -118,6 +118,7 @@ void Tetris::turn(int num)
 	}
 }
 void Teris::welcome{
+	setColor(1);
 	char x;
 	while(1){
 		ststem("cls");
@@ -139,14 +140,11 @@ void Teris::welcome{
 			rank = x - '0';
 			break;
 		}
-
 	}
 }	
-void Tetris::SetColor(int color_num)		
-{
+void Tetris::SetColor(int color_num){
 	int n=0x0f;
-	switch (color_num)
-	{
+	switch (color_num){
 	case 0: n = 0x08; break;
 	case 1: n = 0x0E; break;
 	case 2: n = 0x0D; break;
