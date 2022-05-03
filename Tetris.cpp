@@ -117,6 +117,18 @@ void Tetris::turn(int num)
 		case g4: id = g1; break;
 	}
 }
+void Tetris::reDraw(int x, int y, int num)
+{
+	int nx, ny;
+
+	for (int i = 0; i < 4; i++)
+	{
+		nx = x + sharp[num][2 * i];
+		ny = y + sharp[num][2 * i + 1];
+		setPos((ny + 1) * 2, nx + 1);
+		cout << "  ";
+	}
+}
 void Teris::welcome{
 	setColor(1);
 	char x;
