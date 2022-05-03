@@ -67,24 +67,70 @@ Tetris::Tetris()
 	score = 0;
 	top = 25;
 }
-
 void Tetris::setPos(int i, int j)
 {
 	COORD pos = { i, j };
 	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), pos);
 }
-void Tetris::draw(int x, int y, int num)
-{
-	int nx, ny;
+void Teris::welcome{
+	setColor(1);
+	char x;
+	while(1){
+		ststem("cls");
+		cout << "----------------------" << endl;
+		cout <<".  俄羅斯方塊" << endl;
+		cout << "-----------------------" << endl;
+		cout << " 操作方式：" << endl;
+		cout << "  ↑ : 旋轉" << endl;
+		cout << "  ↓ : 加速下移" << endl;
+		cout << "  ← : 左移" << endl;
+		cout << "  → : 右移" << endl;
+		cout << "空格 : 暫停" << endl;
+		cout << "-----------------------" << endl;
+		cout << "< 1到9選擇難度 >" << endl;
+		setPos(20, 10);
+		x = getchar();
+		if (x <= '9' && x >= '0')
+		{
+			rank = x - '0';
+			break;
+		}
+	}
+}
+void Tetris::drawMap()
+	int i;
+	setColor(0);
 
-	for (int i = 0; i < 4; i++)
+	for (i = 0; i < 24; i++)
 	{
-		nx = x + sharp[num][2 * i];
-		ny = y + sharp[num][2 * i + 1];
-		setPos((ny + 1) * 2, nx + 1);
-		setColor(i + 1);
+		setPos(i * 2, 0);
+		cout << "■";
+		setPos(i * 2, 26);
 		cout << "■";
 	}
+
+	for (i = 0; i < 26; i++)
+	{
+		setPos(0, i);
+		cout << "■";
+		setPos(28, i);
+		cout << "■";
+		setPos(46, i);
+		cout << "■";
+	}
+
+	for (i = 14; i < 24; i++)
+	{
+		setPos(i * 2, 16);
+		cout << "■";
+	}
+
+	setColor(3);
+	input_score();
+	setPos(30, 21);
+	cout << "難度等級: " << rank;
+	setPos(32, 2);
+	cout << "下一圖形";
 }
 void Tetris::turn(int num)
 {
@@ -117,6 +163,19 @@ void Tetris::turn(int num)
 		case g4: id = g1; break;
 	}
 }
+void Tetris::draw(int x, int y, int num)
+{
+	int nx, ny;
+
+	for (int i = 0; i < 4; i++)
+	{
+		nx = x + sharp[num][2 * i];
+		ny = y + sharp[num][2 * i + 1];
+		setPos((ny + 1) * 2, nx + 1);
+		setColor(i + 1);
+		cout << "■";
+	}
+}
 void Tetris::reDraw(int x, int y, int num)
 {
 	int nx, ny;
@@ -129,31 +188,6 @@ void Tetris::reDraw(int x, int y, int num)
 		cout << "  ";
 	}
 }
-void Teris::welcome{
-	setColor(1);
-	char x;
-	while(1){
-		ststem("cls");
-		cout << "----------------------" << endl;
-		cout <<".  俄羅斯方塊" << endl;
-		cout << "-----------------------" << endl;
-		cout << " 操作方式：" << endl;
-		cout << "  ↑ : 旋轉" << endl;
-		cout << "  ↓ : 加速下移" << endl;
-		cout << "  ← : 左移" << endl;
-		cout << "  → : 右移" << endl;
-		cout << "空格 : 暫停" << endl;
-		cout << "-----------------------" << endl;
-		cout << "< 1到9選擇難度 >" << endl;
-		setPos(20, 10);
-		x = getchar();
-		if (x <= '9' && x >= '0')
-		{
-			rank = x - '0';
-			break;
-		}
-	}
-}	
 void Tetris::SetColor(int color_num){
 	int n=0x0f;
 	switch (color_num){
