@@ -11,18 +11,18 @@ class Tetris
 		int top;	
 	public:
 		Tetris();
+		void setPos(int i, int j);
 		void welocme();
 		void drawMap();
-		void setColor(int);
-		void draw(int, int, int);
-		void run();	
-		void reDraw(int, int, int);
-		bool judge(int, int, int);
 		void turn(int);	
+		void draw(int, int, int);
+		void reDraw(int, int, int);
+		void setColor(int);
+		bool judge(int, int, int);
 		void updata();	
-		void setPos(int i, int j);
 		void pause();
 		void input_score();
+		void run();
 };
 
 #endif
