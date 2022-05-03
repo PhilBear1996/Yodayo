@@ -40,6 +40,6 @@
 	4 / 1 9 加了T型	
 	4 / 2 1 新增顏色設定
 	4 / 2 2 SetColor除錯、修正Welcome
-	5／3 新增reDraw函式
+	5／3 新增reDraw函式與drawMap函式
 
 #組員名單 : 
