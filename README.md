@@ -31,7 +31,7 @@
 		
 
 更新 ：
-	４／５ 建Ｔetris.h 檔
+	４／５ 建Tetris.h 檔
   	４／１４ 新增Tetris.cpp 檔(需要的函式庫與變數)
 	４／１４ 新增方塊設定
 	４／１６ 新增draw函式
@@ -39,7 +39,8 @@
 	４／１７ 新增歡迎介面
 	4 / 1 9 加了T型	
 	4 / 2 1 新增顏色設定
-	4 / 2 2 SetColor除錯、修正Welcome
+	4 / 2 2 setColor除錯、修正welcome
 	5／3 新增reDraw函式與drawMap函式
+	5／１１ 新增judge函式與updata函式
 
 #組員名單 : 
