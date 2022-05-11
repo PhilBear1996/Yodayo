@@ -38,8 +38,7 @@ int map[28][16];
 #define g3 17
 #define g4 18
 
-const int sharp [19][8]=
-{
+const int sharp [19][8]={
 	{0,0,1,0,2,0,3,0},
 	{0,0,0,1,0,2,0,3},
 	{0,0,1,0,0,1,1,1},
@@ -60,19 +59,17 @@ const int sharp [19][8]=
 	{0,1,1,1,2,1,1,2},		
 	{0,0,0,1,1,1,0,2}		
 }
-Tetris::Tetris()
-{
+Tetris::Tetris(){
 	point[0] = 0;
 	point[1] = 5;
 	score = 0;
 	top = 25;
 }
-void Tetris::setPos(int i, int j)
-{
+void Tetris::setPos(int i, int j){
 	COORD pos = { i, j };
 	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), pos);
 }
-void Teris::welcome{
+void Teris::welcome(){
 	setColor(1);
 	char x;
 	while(1){
@@ -97,7 +94,7 @@ void Teris::welcome{
 		}
 	}
 }
-void Tetris::drawMap()
+void Tetris::drawMap(){
 	int i;
 	setColor(0);
 
@@ -132,8 +129,7 @@ void Tetris::drawMap()
 	setPos(32, 2);
 	cout << "下一圖形";
 }
-void Tetris::turn(int num)
-{
+void Tetris::turn(int num){
 	switch(num)
 	{
 		case a1: id = a2;break;	
@@ -163,8 +159,7 @@ void Tetris::turn(int num)
 		case g4: id = g1; break;
 	}
 }
-void Tetris::draw(int x, int y, int num)
-{
+void Tetris::draw(int x, int y, int num){
 	int nx, ny;
 
 	for (int i = 0; i < 4; i++)
@@ -176,8 +171,7 @@ void Tetris::draw(int x, int y, int num)
 		cout << "■";
 	}
 }
-void Tetris::reDraw(int x, int y, int num)
-{
+void Tetris::reDraw(int x, int y, int num){
 	int nx, ny;
 
 	for (int i = 0; i < 4; i++)
@@ -188,7 +182,7 @@ void Tetris::reDraw(int x, int y, int num)
 		cout << "  ";
 	}
 }
-void Tetris::SetColor(int color_num){
+void Tetris::setColor(int color_num){
 	int n=0x0f;
 	switch (color_num){
 	case 0: n = 0x08; break;
@@ -198,4 +192,59 @@ void Tetris::SetColor(int color_num){
 	case 4: n = 0x0A; break;
 	}
 	SetConsoleTextAttribute (GetStdHandle (STD_OUTPUT_HANDLE), n);
+}
+bool Tetris::judge(int x, int y, int num){
+	int nx, ny;
+
+	for (int i = 0; i < 4; i++)
+	{
+		nx = x + sharp[num][2 * i];
+		ny = y + sharp[num][2 * i + 1];
+		if (!(nx < 25 && nx >= 0 && ny < 13 && ny >= 0 && !map[nx][ny]))
+			return true;
+	}
+	return false;
+}
+void Tetris::updata(){
+	int i, flag;
+	int nx, ny;
+	for (i = 0; i < 4; i++)
+	{
+		nx = point[0] + sharp[id][i * 2];
+		ny = point[1] + sharp[id][i * 2 + 1];
+		setPos((ny + 1) * 2, nx + 1);
+		setColor(0);
+		cout << "■";
+		map[nx][ny] = 1;
+	}
+
+	if (point[0] < top)
+		top = point[0];
+
+	for (i = point[0]; i < point[0] + high[id]; i++)
+	{
+		flag = 1;
+		for (int j = 0; j < 13; j++)
+			if (map[i][j] == 0)
+				flag = 0;
+		if (flag == 1)
+		{
+			for (int k = i; k >= top; k--)
+			{
+				for (int p = 0; p < 13; p++)//gai
+				{
+					map[k][p] = map[k - 1][p];
+					setPos((p + 1) * 2, k + 1);
+					if (map[k][p] == 1)
+						cout << "■";
+					else cout << "  ";
+				}
+			}
+			if (flag == 1) score += 100;
+			else if (flag == 2) score += 300;
+			else if (flag == 3) score += 500;
+			else if (flag == 4) score += 800;
+			input_score();
+		}
+	}
 }
