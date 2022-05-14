@@ -205,6 +205,9 @@ bool Tetris::judge(int x, int y, int num){
 	}
 	return false;
 }
+void Tetris::Run(){
+	
+}	
 void Tetris::updata(){
 	int i, flag;
 	int nx, ny;
