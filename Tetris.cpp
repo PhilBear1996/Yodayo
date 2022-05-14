@@ -206,6 +206,32 @@ bool Tetris::judge(int x, int y, int num){
 	return false;
 }
 void Tetris::Run(){
+	int next-id;
+	srand(time(0));
+
+	id = rand() % 15;
+	next_id = rand() % 15;
+
+	Draw(point[0], point[1], id);
+	Draw(5, 16, next_id);
+
+	int count;
+	if (rank == 1) {
+		count = 150;
+	}
+	else if (rank == 2) {
+		count = 100;
+	}
+	else if (rank ==3) {
+		count = 50;
+	}
+	else
+	    count = 5;
+	int i = 0; 
+	while (1){
+	
+	}
+	
 	
 }	
 void Tetris::updata(){
