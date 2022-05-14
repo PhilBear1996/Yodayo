@@ -69,6 +69,9 @@ void Tetris::setPos(int i, int j){
 	COORD pos = { i, j };
 	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), pos);
 }
+void Tetris::Input_score(){
+	
+}
 void Teris::welcome(){
 	setColor(1);
 	char x;
