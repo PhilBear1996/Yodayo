@@ -42,5 +42,6 @@
 	4 / 2 2 setColor除錯、修正welcome
 	5／3 新增reDraw函式與drawMap函式
 	5／１１ 新增judge函式與updata函式
+	5／１４ 新增pause函式與input_score函式
 
 #組員名單 : 
