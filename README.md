@@ -44,5 +44,6 @@
 	5／１１ 新增judge函式與updata函式
 	5／１４ 新增pause函式與input_score函式
 	5 /1 5 新增運行遊戲的Run函式
+	5 /1 5 補充完畢run函式
 
 #組員名單 : 
