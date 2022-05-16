@@ -2,6 +2,22 @@
 #include<string>
 #include<ctime>
 #include<cstdlib>
+#include<windows.h>
+#include<conio.h>
+#include<cstdio>
+#include "Tetris.h"
+using namespace std;
+int main()
+{
+	Tetris game;
+	game.Welocme();
+	system("cls");				
+	game.DrawMap();
+	game.Run();
+	system("pause");
+}
+
+/*
 void blockT
 class Tetris
 {
@@ -23,3 +39,11 @@ int main{
   
   return 0;
 }
+*/
+
+
+
+
+
+
+
