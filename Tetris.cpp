@@ -122,7 +122,7 @@ void Tetris::drawMap(){
 		cout << "■";
 	}
 
-	setColor(3);
+	setColor(1);
 	input_score();
 	setPos(30, 21);
 	cout << "難度等級: " << rank;
@@ -167,7 +167,7 @@ void Tetris::draw(int x, int y, int num){
 		nx = x + sharp[num][2 * i];
 		ny = y + sharp[num][2 * i + 1];
 		setPos((ny + 1) * 2, nx + 1);
-		setColor(i + 1);
+		setColor(1);
 		cout << "■";
 	}
 }
@@ -183,15 +183,13 @@ void Tetris::reDraw(int x, int y, int num){
 	}
 }
 void Tetris::setColor(int color_num){
-	int n=0x0f;
-	switch (color_num){
-	case 0: n = 0x08; break;
-	case 1: n = 0x0E; break;
-	case 2: n = 0x0D; break;
-	case 3: n = 0x0E; break;
-	case 4: n = 0x0A; break;
+	int n = 0x0C;
+	switch (color_num)
+	{
+		case 0: n = 0x0F; break;
+		case 1: n = 0x0E; break;
 	}
-	SetConsoleTextAttribute (GetStdHandle (STD_OUTPUT_HANDLE), n);
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), n);
 }
 bool Tetris::judge(int x, int y, int num){
 	int nx, ny;
@@ -205,28 +203,54 @@ bool Tetris::judge(int x, int y, int num){
 	}
 	return false;
 }
-void Tetris::Run(){
+void Tetris::run(){
 	int next-id;
 	srand(time(0));
 
-	id = rand() % 15;
-	next_id = rand() % 15;
+	id = rand() % 19;
+	next_id = rand() % 19;
 
 	Draw(point[0], point[1], id);
 	Draw(5, 16, next_id);
 
 	int count;
-	if (rank == 1) {
-		count = 150;
+	switch (rank)
+	{
+		case 1:
+			count = 150;
+			break;
+		case 2:
+			count = 125;
+			break;
+		case 3:
+			count = 100;
+			break;
+		case 4:
+			count = 75;
+			break;
+		case 5:
+			count = 50;
+			break;
+		case 6:
+			count = 40;
+			break;
+		case 7:
+			count = 25;
+			break;
+		case 8:
+			count = 10;
+			break;
+		case 9:
+			count = 5;
+			break;
+		default:
+			system("cls");
+			cout << "輸入錯誤，游戲結束！" << endl;
+			cout << endl;
+			system("pause");
+			exit(1);
 	}
-	else if (rank == 2) {
-		count = 100;
-	}
-	else if (rank ==3) {
-		count = 50;
-	}
-	else
-	    count = 5;
+	
 	int i = 0; 
 	while (1){
 	
@@ -243,7 +267,7 @@ void Tetris::Run(){
 				id = next_id;
 
 				reDraw(5, 16, next_id);
-				next_id = rand() % 15;
+				next_id = rand() % 19;
 
 				point[0] = 0; point[1] = 5;
 				draw(point[0], point[1], id);
@@ -318,9 +342,7 @@ void Tetris::Run(){
 		}
 
 		Sleep(1);		
-		i++;				
-	
-	
+		i++;
 }	
 void Tetris::updata(){
 	int i, flag;
@@ -390,7 +412,7 @@ void Tetris::pause(){
 	cout << "              ";
 }
 void Tetris::input_score(){
-	setColor(3);
+	setColor(1);
 	setPos(30, 19);
 	cout << "得分: " << score;
 }
