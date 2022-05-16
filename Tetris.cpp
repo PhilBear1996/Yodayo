@@ -204,8 +204,8 @@ bool Tetris::judge(int x, int y, int num){
 	return false;
 }
 void Tetris::run(){
-	int next-id;
-	srand(time(0));
+	int next_id;
+	srand((int)time(0));
 
 	id = rand() % 19;
 	next_id = rand() % 19;
