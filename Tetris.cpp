@@ -74,16 +74,16 @@ void Teris::welcome(){
 	char x;
 	while(1){
 		ststem("cls");
-		cout << "----------------------" << endl;
-		cout <<".  俄羅斯方塊" << endl;
-		cout << "-----------------------" << endl;
-		cout << " 操作方式：" << endl;
-		cout << "  ↑ : 旋轉" << endl;
-		cout << "  ↓ : 加速下移" << endl;
-		cout << "  ← : 左移" << endl;
-		cout << "  → : 右移" << endl;
-		cout << "空格 : 暫停" << endl;
-		cout << "-----------------------" << endl;
+		cout << "------------------------------------------" << endl;
+		cout << "		俄羅斯方塊		"<< endl;
+		cout << "------------------------------------------" << endl;
+		cout << "               操作方式 : " << endl;
+		cout << "                ↑ : 旋轉" << endl;
+		cout << "                ↓ : 加速下移" << endl;
+		cout << "                ← : 左移" << endl;
+		cout << "                → : 右移" << endl;
+		cout << "              空格 : 暫停" << endl;
+		cout << "-----------------------------------------" << endl;
 		cout << "< 1到9選擇難度 >" << endl;
 		setPos(20, 10);
 		x = getchar();
