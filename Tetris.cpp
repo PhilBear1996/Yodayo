@@ -71,7 +71,7 @@ void Tetris::setPos(int i, int j){
 }
 void Teris::welcome(){
 	setColor(1);
-	char x;
+	int x;
 	while(1){
 		ststem("cls");
 		cout << "------------------------------------------" << endl;
@@ -86,10 +86,10 @@ void Teris::welcome(){
 		cout << "-----------------------------------------" << endl;
 		cout << "< 1到9選擇難度 >" << endl;
 		setPos(20, 10);
-		x = getchar();
-		if (x <= '9' && x >= '0')
+		cin >> x;
+		if (x <= 9 && x > 0)
 		{
-			rank = x - '0';
+			rank = x;
 			break;
 		}
 	}
