@@ -47,4 +47,5 @@
 	5 /1 5 補充完畢run函式
 	5 /1 6 修改setColor的case變數數量與run的變數(id、next_id)
 	5 /1 6 run符號除錯、更動welcome排版方式、編輯main函式
+	5 /1 7 修改welcome的變數
 #組員名單 : 
