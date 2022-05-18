@@ -87,11 +87,9 @@ void Teris::welcome(){
 		cout << "< 1到9選擇難度 >" << endl;
 		setPos(20, 10);
 		cin >> x;
-		if (x <= 9 && x > 0)
-		{
-			rank = x;
-			break;
-		}
+		
+		rank = x;
+		break;
 	}
 }
 void Tetris::drawMap(){
@@ -246,6 +244,7 @@ void Tetris::run(){
 		default:
 			system("cls");
 			cout << "輸入錯誤，游戲結束！" << endl;
+			setColor(1);
 			cout << endl;
 			system("pause");
 			exit(1);
