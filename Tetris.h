@@ -12,7 +12,7 @@ class Tetris
 	public:
 		Tetris();
 		void setPos(int i, int j);
-		void welocme();
+		void welcome();
 		void drawMap();
 		void turn(int);	
 		void draw(int, int, int);
