@@ -9,11 +9,11 @@
 using namespace std;
 int main()
 {
-	Tetris game;
-	game.Welocme();
+	tetris game;
+	game.welocme();
 	system("cls");				
-	game.DrawMap();
-	game.Run();
+	game.drawMap();
+	game.run();
 	system("pause");
 }
 
