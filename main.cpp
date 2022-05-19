@@ -9,7 +9,7 @@
 using namespace std;
 int main()
 {
-	tetris game;
+	Ttris game;
 	game.welcome();
 	system("cls");				
 	game.drawMap();
