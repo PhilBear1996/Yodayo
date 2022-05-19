@@ -69,11 +69,11 @@ void Tetris::setPos(int i, int j){
 	COORD pos = { i, j };
 	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), pos);
 }
-void Teris::welcome(){
+void Tetris::welcome(){
 	setColor(1);
 	int x;
 	while(1){
-		ststem("cls");
+		system("cls");
 		cout << "------------------------------------------" << endl;
 		cout << "		俄羅斯方塊		"<< endl;
 		cout << "------------------------------------------" << endl;
@@ -96,16 +96,14 @@ void Tetris::drawMap(){
 	int i;
 	setColor(0);
 
-	for (i = 0; i < 24; i++)
-	{
+	for (i = 0; i < 24; i++){
 		setPos(i * 2, 0);
 		cout << "■";
 		setPos(i * 2, 26);
 		cout << "■";
 	}
 
-	for (i = 0; i < 26; i++)
-	{
+	for (i = 0; i < 26; i++){
 		setPos(0, i);
 		cout << "■";
 		setPos(28, i);
@@ -114,8 +112,7 @@ void Tetris::drawMap(){
 		cout << "■";
 	}
 
-	for (i = 14; i < 24; i++)
-	{
+	for (i = 14; i < 24; i++){
 		setPos(i * 2, 16);
 		cout << "■";
 	}
@@ -128,8 +125,7 @@ void Tetris::drawMap(){
 	cout << "下一圖形";
 }
 void Tetris::turn(int num){
-	switch(num)
-	{
+	switch(num){
 		case a1: id = a2;break;	
 		case a2: id = a1;break;
 		
@@ -160,8 +156,7 @@ void Tetris::turn(int num){
 void Tetris::draw(int x, int y, int num){
 	int nx, ny;
 
-	for (int i = 0; i < 4; i++)
-	{
+	for (int i = 0; i < 4; i++){
 		nx = x + sharp[num][2 * i];
 		ny = y + sharp[num][2 * i + 1];
 		setPos((ny + 1) * 2, nx + 1);
@@ -172,8 +167,7 @@ void Tetris::draw(int x, int y, int num){
 void Tetris::reDraw(int x, int y, int num){
 	int nx, ny;
 
-	for (int i = 0; i < 4; i++)
-	{
+	for (int i = 0; i < 4; i++){
 		nx = x + sharp[num][2 * i];
 		ny = y + sharp[num][2 * i + 1];
 		setPos((ny + 1) * 2, nx + 1);
@@ -182,8 +176,7 @@ void Tetris::reDraw(int x, int y, int num){
 }
 void Tetris::setColor(int color_num){
 	int n = 0x0C;
-	switch (color_num)
-	{
+	switch (color_num){
 		case 0: n = 0x0F; break;
 		case 1: n = 0x0E; break;
 	}
@@ -192,8 +185,7 @@ void Tetris::setColor(int color_num){
 bool Tetris::judge(int x, int y, int num){
 	int nx, ny;
 
-	for (int i = 0; i < 4; i++)
-	{
+	for (int i = 0; i < 4; i++){
 		nx = x + sharp[num][2 * i];
 		ny = y + sharp[num][2 * i + 1];
 		if (!(nx < 25 && nx >= 0 && ny < 13 && ny >= 0 && !map[nx][ny]))
@@ -208,12 +200,11 @@ void Tetris::run(){
 	id = rand() % 19;
 	next_id = rand() % 19;
 
-	Draw(point[0], point[1], id);
-	Draw(5, 16, next_id);
+	draw(point[0], point[1], id);
+	draw(5, 16, next_id);
 
 	int count;
-	switch (rank)
-	{
+	switch (rank){
 		case 1:
 			count = 150;
 			break;
@@ -251,17 +242,11 @@ void Tetris::run(){
 	}
 	
 	int i = 0; 
-	while (1){
 	
-	}
-	
-	while(1)
-	{
-		if(!(i < count))				
-		{
+	while(1){
+		if(!(i < count)){
 			i = 0;
-			if(judge(point[0] + 1, point[1], id))			
-			{
+			if(judge(point[0] + 1, point[1], id)){
 				updata();
 				id = next_id;
 
@@ -272,8 +257,7 @@ void Tetris::run(){
 				draw(point[0], point[1], id);
 				draw(5, 16, next_id);
 
-				if(judge(point[0], point[1], id))
-				{
+				if(judge(point[0], point[1], id)){
 					system("cls");
 					cout << "游戲結束！" << endl;
 	 				cout << endl;
@@ -283,24 +267,20 @@ void Tetris::run(){
 					exit(1);
 				}
 			}
-			else					
-			{
+			else{
 				reDraw(point[0], point[1], id);
 				point[0]++;
 				draw(point[0], point[1], id);
 			}
 		}
 
-		if(_kbhit())				
-		{
+		if(_kbhit()){
   			int key, key2;
 			key = _getch();
-			if(key == 224)
-			{
+			if(key == 224){
 				key2 = _getch();
 
-				if(key2 == 72)			
-				{
+				if(key2 == 72){
 					int temp = id;
 					turn(id);
 					if (judge(point[0], point[1], id))
@@ -308,8 +288,7 @@ void Tetris::run(){
 					reDraw(point[0], point[1], temp);
 					draw(point[0], point[1], id);
 				}
-				if(key2 == 80)				
-				{
+				if(key2 == 80){
 					if(!judge(point[0] + 2, point[1], id))
 					{
 						reDraw(point[0], point[1], id);
@@ -317,8 +296,7 @@ void Tetris::run(){
 						draw(point[0], point[1], id);
 					}
 				}
-				else if(key2 == 75)				
-				{
+				else if(key2 == 75){
 					if(!judge(point[0], point[1] - 1, id))
 					{
 						reDraw(point[0], point[1], id);
@@ -326,8 +304,7 @@ void Tetris::run(){
 						draw(point[0], point[1], id);
 					}
 				}
-				else if(key2 == 77)					
-				{
+				else if(key2 == 77){
 					if(!judge(point[0], point[1] + 1, id))
 					{
 						reDraw(point[0], point[1], id);
@@ -346,8 +323,7 @@ void Tetris::run(){
 void Tetris::updata(){
 	int i, flag;
 	int nx, ny;
-	for (i = 0; i < 4; i++)
-	{
+	for (i = 0; i < 4; i++){
 		nx = point[0] + sharp[id][i * 2];
 		ny = point[1] + sharp[id][i * 2 + 1];
 		setPos((ny + 1) * 2, nx + 1);
@@ -359,18 +335,14 @@ void Tetris::updata(){
 	if (point[0] < top)
 		top = point[0];
 
-	for (i = point[0]; i < point[0] + high[id]; i++)
-	{
+	for (i = point[0]; i < point[0] + high[id]; i++){
 		flag = 1;
 		for (int j = 0; j < 13; j++)
 			if (map[i][j] == 0)
 				flag = 0;
-		if (flag == 1)
-		{
-			for (int k = i; k >= top; k--)
-			{
-				for (int p = 0; p < 13; p++)//gai
-				{
+		if (flag == 1){
+			for (int k = i; k >= top; k--){
+				for (int p = 0; p < 13; p++){
 					map[k][p] = map[k - 1][p];
 					setPos((p + 1) * 2, k + 1);
 					if (map[k][p] == 1)
@@ -392,12 +364,9 @@ void Tetris::pause(){
 	setPos(30, 11);
 	cout << "你的分數為 " << score;
 	char temp;
-	while (1)
-	{
-		while (1)
-		{
-			if (_kbhit())
-			{
+	while (1){
+		while (1){
+			if (_kbhit()){
 				temp = _getch();
 				break;
 			}
@@ -410,8 +379,7 @@ void Tetris::pause(){
 	setPos(30, 11);
 	cout << "              ";
 }
-void Tetris::input_score()
-{
+void Tetris::input_score(){
 	setColor(1);
 	setPos(30, 19);
 	cout << "得分: " << score;
