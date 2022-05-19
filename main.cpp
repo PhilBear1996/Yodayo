@@ -10,7 +10,7 @@ using namespace std;
 int main()
 {
 	tetris game;
-	game.welocme();
+	game.welcome();
 	system("cls");				
 	game.drawMap();
 	game.run();
