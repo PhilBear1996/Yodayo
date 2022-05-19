@@ -410,7 +410,8 @@ void Tetris::pause(){
 	setPos(30, 11);
 	cout << "              ";
 }
-void Tetris::input_score(){
+void Tetris::input_score()
+{
 	setColor(1);
 	setPos(30, 19);
 	cout << "得分: " << score;
