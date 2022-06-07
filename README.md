@@ -16,7 +16,8 @@
     余長安 B0247737
     
 #UML圖 
-    ![image](https://user-images.githubusercontent.com/101238831/163676192-fea0ba31-97b2-4915-8274-593e6493bd3b.png)
+	<img width="712" alt="2022-06-07_11 46 57" src="https://user-images.githubusercontent.com/101238831/172296758-f64a44de-be4f-42c0-af56-35019fcf96aa.png">
+
 
 #分工
 	鐘敏榮
